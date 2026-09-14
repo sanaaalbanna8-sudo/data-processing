@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>معالجة البيانات اليدوية والآلية</title>
+  <link rel="icon" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="bg">
+    <div class="orb a"></div>
+    <div class="orb b"></div>
+    <div class="orb c"></div>
+  </div>
+
+  <header class="hud">
+    <div class="brand">
+      <span class="mark">IT</span>
+      <span>
+        <b>معالجة البيانات</b>
+        <small>الوحدة 1 · الأجهزة الطرفية</small>
+      </span>
+    </div>
+    <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+    <div class="hud-actions">
+      <button class="icon-btn" id="full-btn" type="button" title="ملء الشاشة">⛶</button>
+    </div>
+  </header>
+
+  <main class="deck" id="deck">
+    <section class="slide active" data-title="البداية">
+      <div class="hero">
+        <div class="hero-copy">
+          <div class="kicker">نتاج التعلم (أ) · الأجهزة الطرفية والوسائط</div>
+          <h1>
+            معالجة البيانات
+            <span class="en">Manual & Automatic Data Processing</span>
+          </h1>
+          <p class="lead">موضوعان يحدّدان كيف تدخل البيانات إلى النظام: بيد الإنسان، أو بجهاز يعمل وحده تقريبًا.</p>
+          <div class="chips">
+            <span class="chip">يدوية</span>
+            <span class="chip">آلية</span>
+            <span class="chip">GIGO</span>
+            <span class="chip">RFID</span>
+            <span class="chip">OCR</span>
+          </div>
+          <div class="grid grid-2">
+            <article class="card manual">
+              <div class="num">01</div>
+              <h3>المعالجة اليدوية</h3>
+              <p>إنسان يجمع البيانات أو يدخلها: ورقة، هاتف، صندوق بيع، تصحيح اختبار.</p>
+            </article>
+            <article class="card auto">
+              <div class="num">02</div>
+              <h3>المعالجة الآلية</h3>
+              <p>حاسوب أو حسّاس يجمع ويعالج بقليل من التدخل: عدّاد ذكي، صراف، قمر صناعي.</p>
+            </article>
+          </div>
+        </div>
+        <div class="hero-media">
+          <img src="img/hero-split.png" alt="إنسان يدخل بيانات من أوراق مقابل أجهزة تجمع البيانات وحدها" />
+          <div class="cap">
+            <span class="pill manual">يد الإنسان</span>
+            <span class="pill auto">جهاز يعمل</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="جودة المدخلات">
+      <div class="quote">
+        <div class="kicker">القاعدة الأولى</div>
+        <blockquote>ما يخرج من الحاسوب لا يكون أجود مما يدخل إليه.</blockquote>
+        <p class="lead" style="margin: 0 auto;">الحاسوب يقرأ بالتعرف الضوئي على الأحرف، ويكتب عبر أجهزة الإخراج. وبعض ما يظهر على الشاشة «يُنشأ» داخل الجهاز… لكن بواسطة برنامج كتبه إنسان.</p>
+        <div class="gigo">
+          <b class="in">مدخلات رديئة</b>
+          <span class="eq">←</span>
+          <b class="out">مخرجات رديئة</b>
+        </div>
+        <p class="lead" style="margin: 0 auto;">الاسم المختصر: <strong style="color:#fff">GIGO</strong> — Garbage In, Garbage Out.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="الآلة الحاسبة">
+      <div class="lab">
+        <div>
+          <div class="kicker">جرّب بنفسك</div>
+          <h2>الحاسوب لا يعرف أن الرقم غلط</h2>
+          <p class="lead">الآلة الحاسبة شكل بسيط من الحاسوب. تحسب ما تضعه فيها حسابًا صحيحًا، لكنها لن تسأل: هل هذا الرقم هو الرقم الصحيح أصلًا؟</p>
+          <div class="card" style="margin-top:16px">
+            <h3>مثال الصف</h3>
+            <p>المطلوب: 48 + 27. إذا كتب أحدهم 48 + 72 فستظهر 120. الحساب صحيح… والمسألة خاطئة.</p>
+          </div>
+        </div>
+        <div class="calc">
+          <img src="img/gigo-calculator.png" alt="آلة حاسبة بجانب أرقام مكتوبة بخط اليد" style="height:140px;width:100%;object-fit:cover;border-radius:16px;margin-bottom:12px" />
+          <div class="calc-screen" id="calc-screen">48 + 27 = ؟</div>
+          <div class="calc-row">
+            <input id="n1" type="number" value="48" aria-label="العدد الأول" />
+            <select id="op" aria-label="العملية">
+              <option value="+">+</option>
+              <option value="-">−</option>
+              <option value="*">×</option>
+              <option value="/">÷</option>
+            </select>
+            <input id="n2" type="number" value="72" aria-label="العدد الثاني" />
+          </div>
+          <button type="button" id="calc-btn">احسب</button>
+          <div class="truth" id="calc-msg">غيّر الأرقام ثم احسب. الآلة ستطيعك حتى لو أخطأت.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="بلا قرار">
+      <div class="kicker">حدود الجهاز</div>
+      <h2>لا قرار… إلا إذا بُرمج</h2>
+      <p class="lead">الحاسوب لا يملك قدرة على اتخاذ القرار ما لم تُبرمج فيه. يفعل بالضبط ما يُطلب منه. رغم ذلك، صعب تخيّل الحياة اليوم من دونه: يعالج كميات هائلة بسرعة لا يصل إليها الإنسان.</p>
+      <div class="flow">
+        <span>بيانات</span><span class="arrow">←</span>
+        <span>برنامج كتبه إنسان</span><span class="arrow">←</span>
+        <span>معالجة</span><span class="arrow">←</span>
+        <span>مخرجات</span>
+      </div>
+      <div class="grid grid-3">
+        <article class="card">
+          <div class="num">OCR</div>
+          <h3>يقرأ</h3>
+          <p>التعرف الضوئي على الأحرف يحوّل صورة النص إلى بيانات.</p>
+        </article>
+        <article class="card">
+          <div class="num">OUT</div>
+          <h3>يكتب ويُظهر</h3>
+          <p>الشاشة، الطابعة، الصوت، والحركة: كلها إخراج من البرنامج.</p>
+        </article>
+        <article class="card">
+          <div class="num">CPU</div>
+          <h3>ينفّذ ولا يفكّر</h3>
+          <p>السرعة هائلة. الفهم والحكم يبقيان عند من كتب الأوامر.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide" data-title="النوعان">
+      <div class="split">
+        <div class="col manual">
+          <div class="kicker" style="background:rgba(255,122,89,.16);color:var(--manual)">النوع الأول</div>
+          <h2>يدوية</h2>
+          <p>إنسان يجمع البيانات أو يدخلها أو يعالجها. الحاسوب أداة بين يديه.</p>
+          <ul class="when">
+            <li>إدخال طلبات البريد والهاتف</li>
+            <li>بيانات العملاء من نماذج ورقية</li>
+            <li>معالجة المبيعات عند مشغّل الصندوق</li>
+            <li>تصحيح نصوص الاختبار</li>
+            <li>إدخال إجابات الاستطلاع أو جمعها</li>
+          </ul>
+        </div>
+        <div class="col auto">
+          <div class="kicker">النوع الثاني</div>
+          <h2>آلية</h2>
+          <p>جمع أو معالجة يقوم بها الحاسوب، وأحيانًا بتدخل بشري قليل جدًا.</p>
+          <ul class="when">
+            <li>العدّادات الذكية: كهرباء وغاز</li>
+            <li>مقياس الزلازل</li>
+            <li>أقمار ومراصد: هابل، مونا كيا، SETI</li>
+            <li>معاملات أجهزة الصراف الآلي</li>
+            <li>توقيت السباق بـ RFID</li>
+            <li>تعدين البيتكوين</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="يدوية">
+      <div class="kicker" style="background:rgba(255,122,89,.16);color:var(--manual)">المعالجة اليدوية</div>
+      <h2>أين نراها في الشركات؟</h2>
+      <p class="lead">كل مثال هنا فيه إنسان في منتصف الطريق: يقرأ، يكتب، يمرّر، أو يحكم.</p>
+      <div class="grid grid-6" style="margin-top:16px">
+        <article class="card photo-card"><img src="img/game-phone-orders.png" alt="" /><span>طلبات هاتف وبريد</span></article>
+        <article class="card photo-card"><img src="img/game-paper-forms.png" alt="" /><span>نماذج ورقية</span></article>
+        <article class="card photo-card"><img src="img/game-supermarket.png" alt="" /><span>مشغّل صندوق</span></article>
+        <article class="card photo-card"><img src="img/game-marking.png" alt="" /><span>تصحيح اختبار</span></article>
+        <article class="card photo-card"><img src="img/game-survey.png" alt="" /><span>استطلاع ورقي</span></article>
+        <article class="card photo-card"><img src="img/game-cash-count.png" alt="" /><span>عدّ وتسجيل يدوي</span></article>
+      </div>
+    </section>
+
+    <section class="slide" data-title="متى يدوية">
+      <div class="kicker" style="background:rgba(255,122,89,.16);color:var(--manual)">قرار الصف</div>
+      <h2>متى نلجأ لليدوية؟</h2>
+      <div class="grid grid-2" style="margin-top:18px">
+        <article class="card manual">
+          <h3>الكمية صغيرة أو غير منتظمة</h3>
+          <p>عشرة طلبات في اليوم أرخص بورقة وموظف من بناء نظام كامل.</p>
+        </article>
+        <article class="card manual">
+          <h3>المطلوب حكم إنسان</h3>
+          <p>تصحيح تعبير، حالة زبون خاصة، استثناء لا تغطيه القواعد.</p>
+        </article>
+        <article class="card manual">
+          <h3>لا يوجد حسّاس مناسب بعد</h3>
+          <p>البيانات ما زالت على ورق أو تأتي بمكالمة. أول خطوة إدخال يدوي.</p>
+        </article>
+        <article class="card manual">
+          <h3>تكلفة الأتمتة أكبر من الفائدة</h3>
+          <p>إذا تكررت العملية قليلًا، الجهاز الغالي يصبح خسارة لا حلًا.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide" data-title="آلية">
+      <div class="kicker">المعالجة الآلية</div>
+      <h2>الجهاز يجمع… ونحن نراقب</h2>
+      <p class="lead">المعالجة الآلية: جمع بيانات أو معالجتها يقوم بها الحاسوب، أحيانًا بتدخل بشري قليل جدًا.</p>
+      <div class="grid grid-6" style="margin-top:16px">
+        <article class="card photo-card"><img src="img/game-smart-meter.png" alt="" /><span>عدّاد ذكي</span></article>
+        <article class="card photo-card"><img src="img/game-seismograph.png" alt="" /><span>مقياس زلازل</span></article>
+        <article class="card photo-card"><img src="img/game-hubble.png" alt="" /><span>هابل وأقمار</span></article>
+        <article class="card photo-card"><img src="img/game-atm.png" alt="" /><span>صراف آلي</span></article>
+        <article class="card photo-card"><img src="img/game-bitcoin.png" alt="" /><span>تعدين بيتكوين</span></article>
+        <article class="card photo-card"><img src="img/game-weather.png" alt="" /><span>محطة طقس</span></article>
+      </div>
+    </section>
+
+    <section class="slide" data-title="RFID">
+      <div class="term">
+        <img src="img/rfid-chip.png" alt="شريحة تحديد هوية بموجات الراديو" />
+        <div>
+          <div class="kicker">مصطلح رئيس</div>
+          <h2>RFID</h2>
+          <p class="lead">تقنية تحديد الهوية بموجات الراديو. شريحة صغيرة تُقرأ عن بُعد عند مرورها قرب قارئ، بلا لمس وبلا إدخال يدوي.</p>
+          <div class="grid grid-2">
+            <article class="card auto">
+              <h3>في السباق</h3>
+              <p>شريحة على صدر العدّاء. البوابة تسجّل الزمن لحظة العبور.</p>
+            </article>
+            <article class="card auto">
+              <h3>لماذا آلية؟</h3>
+              <p>الجهاز يقرأ ويعالج آلاف العابرين بسرعة لا يصل إليها حكم بساعة يد.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="متى آلية">
+      <div class="kicker">قرار الصف</div>
+      <h2>متى نلجأ للآلية؟</h2>
+      <div class="grid grid-2" style="margin-top:18px">
+        <article class="card auto">
+          <h3>كمية هائلة وسرعة مطلوبة</h3>
+          <p>معاملات بنك، قراءات عدّادات، إشارات فضاء. الإنسان يتأخر ويتعب.</p>
+        </article>
+        <article class="card auto">
+          <h3>العملية متكررة وواضحة القواعد</h3>
+          <p>إذا تكررت بنفس الطريقة كل يوم، الأتمتة أرخص وأدق على المدى الطويل.</p>
+        </article>
+        <article class="card auto">
+          <h3>جمع مستمر 24 ساعة</h3>
+          <p>الزلازل والطقس والعدّادات لا تنتظر دوام الموظف.</p>
+        </article>
+        <article class="card auto">
+          <h3>المكان بعيد أو خطر</h3>
+          <p>مدار الأرض، مرصد جبلي، منجم بيانات. الجهاز يذهب ونحن نبقى.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide" data-title="المقارنة">
+      <div class="kicker">الخلاصة قبل اللعب</div>
+      <h2>اسأل سؤالًا واحدًا</h2>
+      <div class="rule" style="margin-top:14px">
+        <div class="ask">من يجمع البيانات ويعالجها الآن: الإنسان أم الجهاز؟</div>
+        <article class="card manual">
+          <h3>إذا كان الإنسان…</h3>
+          <p>يدوية. حتى لو استخدم حاسوبًا للكتابة: هو من يقرأ الورقة، يسمع الزبون، أو يحكم على الإجابة.</p>
+        </article>
+        <article class="card auto">
+          <h3>إذا كان الجهاز…</h3>
+          <p>آلية. حتى لو وقف إنسان بجانبه: العدّاد، الصراف، الشريحة، والقمر يعملون بقليل من التدخل.</p>
+        </article>
+      </div>
+      <div class="grid grid-3" style="margin-top:14px">
+        <article class="card"><h3>اليدوية أبطأ</h3><p>لكنها مرنة عند الاستثناءات.</p></article>
+        <article class="card"><h3>الآلية أسرع</h3><p>لكنها تطبق الخطأ بنفس السرعة إن كانت المدخلات أو البرمجة غلط.</p></article>
+        <article class="card"><h3>الشركات تمزج</h3><p>إدخال يدوي للحالات الخاصة، وجمع آلي للكمية الكبيرة.</p></article>
+      </div>
+    </section>
+
+    <section class="slide" data-title="التحدي">
+      <div class="game-intro" id="game-intro">
+        <div class="kicker">تحدّي الصف</div>
+        <h2>يدوية أم آلية؟</h2>
+        <p class="lead" style="margin: 0 auto;">16 صورة. اختر النوع، ثم اقرأ لماذا. لا تخمّن من شكل الجهاز فقط: انظر من الذي يعالج البيانات.</p>
+        <div class="stat">
+          <b>16<small>صورة</small></b>
+          <b>2<small>أزرار فقط</small></b>
+          <b>+1<small>لكل إجابة صحيحة</small></b>
+        </div>
+        <button class="start" id="start-game" type="button">ابدأ التحدي</button>
+      </div>
+      <div class="game" id="game-board" hidden>
+        <div class="game-photo">
+          <img id="g-img" alt="" />
+          <div class="badge" id="g-round">1 / 16</div>
+        </div>
+        <div class="choices">
+          <div class="hud-score">
+            <span id="g-score">النقاط 0</span>
+            <span id="g-streak">سلسلة 0</span>
+          </div>
+          <h3 id="g-title">...</h3>
+          <button class="choice manual" data-pick="manual" type="button">يدوية</button>
+          <button class="choice auto" data-pick="auto" type="button">آلية</button>
+          <div class="why" id="g-why" hidden></div>
+        </div>
+      </div>
+      <div class="result" id="game-result" hidden>
+        <div class="kicker">انتهى التحدي</div>
+        <div class="score-ring" id="score-ring"><b id="final-score">0</b></div>
+        <h2 id="result-title">أحسنت</h2>
+        <p class="lead" id="result-msg" style="margin:0 auto"></p>
+        <div style="margin-top:22px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap">
+          <button class="start" id="replay" type="button">العب مرة أخرى</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="الختام">
+      <div class="kicker">ما يجب أن يبقى</div>
+      <h2>متى نختار كل نوع؟</h2>
+      <p class="lead">نختار اليدوية عند الحكم البشري، والقلة، والاستثناء. نختار الآلية عند الحجم، والتكرار، والبعد، والعمل المتواصل.</p>
+      <div class="grid grid-2" style="margin-top:14px">
+        <article class="card manual">
+          <h3>يدوية — أمثلة</h3>
+          <ul class="when">
+            <li><strong>حكم بشري:</strong> تصحيح تعبير أو مقابلة توظيف</li>
+            <li><strong>قلة:</strong> متجر صغير يستقبل 8 طلبات هاتف يوميًا</li>
+            <li><strong>استثناء:</strong> شكوى زبون خاصة لا يغطيها النظام</li>
+            <li><strong>مصدر ورقي:</strong> إدخال بيانات من نماذج مكتوبة بخط اليد</li>
+          </ul>
+        </article>
+        <article class="card auto">
+          <h3>آلية — أمثلة</h3>
+          <ul class="when">
+            <li><strong>حجم:</strong> آلاف معاملات الصراف في ساعة واحدة</li>
+            <li><strong>تكرار:</strong> قراءة عدّاد الكهرباء كل يوم بنفس الطريقة</li>
+            <li><strong>بعد:</strong> قمر صناعي أو مرصد في مكان لا يصل إليه موظف</li>
+            <li><strong>عمل متواصل:</strong> مقياس زلازل أو محطة طقس 24 ساعة</li>
+          </ul>
+        </article>
+      </div>
+      <div class="card" style="margin-top:14px; text-align:center">
+        <h3 style="margin:0">السؤال الذهبي: <strong>من يعالج البيانات الآن؟</strong></h3>
+        <p style="margin:8px 0 0">إنسان = يدوية · جهاز بقليل تدخل = آلية · وجود كمبيوتر لا يكفي وحده</p>
+      </div>
+    </section>
+  </main>
+
+  <nav class="pager">
+    <button class="nav-btn" id="prev" type="button">السابق</button>
+    <div class="dots" id="dots"></div>
+    <button class="nav-btn" id="next" type="button">التالي</button>
+  </nav>
+  <canvas id="confetti"></canvas>
+
+  <script src="js/game.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
